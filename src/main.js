@@ -19,6 +19,6 @@ app.config.globalProperties.$filters = {
         }
             numeros.push(`<h3 style="color:red;">1</h3>`);
         return numeros.join("");
-    }
+    },
 }
 app.use(router).mount('#app')
