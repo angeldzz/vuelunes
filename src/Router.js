@@ -1,8 +1,10 @@
 import CollatzComponent from './components/CollatzComponent.vue'
+import HomeComponent from './components/HomeComponent.vue'
 import { createRouter,createWebHistory } from 'vue-router'
 
 const myRoutes = [
-    {path:"/", component:CollatzComponent}
+    {path:"/", component:HomeComponent},
+    {path:"/collatz", component:CollatzComponent}
 ]
 const router = createRouter({
     history: createWebHistory(),
