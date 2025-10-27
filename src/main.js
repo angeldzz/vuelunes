@@ -20,5 +20,11 @@ app.config.globalProperties.$filters = {
             numeros.push(`<h3 style="color:red;">1</h3>`);
         return numeros.join("");
     },
+    getResultado(numero, multi){
+        return numero * multi
+    },
+    getOperacion(numero, multi){
+        return numero + " * " + multi
+    }
 }
 app.use(router).mount('#app')

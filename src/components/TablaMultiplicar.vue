@@ -3,7 +3,7 @@
     <label>Tabla Normal</label>
     <input type="number" v-model="normal">
     <button @click="generarTabla()">Generar tabla</button>
-    <table>
+    <table v-if="tablaGenerada !== ''" border="1">
         <thead>
             <tr>
                 <th>Operacion</th>
@@ -15,7 +15,7 @@
     <hr>
     <label>Tabla Directivas</label>
     <input type="number" v-model="directivas">
-    <table>
+    <table v-if="directivas !== 0" border="1">
         <thead>
             <tr>
                 <th>Operacion</th>
@@ -29,6 +29,21 @@
             </tr>
         </tbody>
     </table>
+    <hr>
+        <table v-if="directivas !== 0" border="1">
+        <thead>
+            <tr>
+                <th>Operacion</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="i in 10" :key="i" style="background-color:lightgreen;">
+                <td>{{ $filters.getResultado(directivas,i) }}</td>
+                <td>{{ $filters.getOperacion(directivas,i) }}</td>
+            </tr>
+        </tbody>
+    </table>
   </div>
 </template>
 
@@ -37,7 +52,7 @@ export default {
     name:"TablaMultiplicar",
     data(){
         return{
-            directivas: undefined,
+            directivas: 0,
             normal: undefined,
             tablaGenerada: ''
         }
