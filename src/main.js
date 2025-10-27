@@ -7,17 +7,18 @@ app.config.globalProperties.$filters = {
     collatz(numero){
         numero = parseInt(numero);
         
-        let numeros = [numero];
+        let numeros = [];
         while(numero !== 1){
             if(numero % 2 === 0){
+                numeros.push(`<h3 style="color:green;">${numero}</h3>`);
                 numero = numero / 2;
-                numeros.push(numero);
             }else{
+                numeros.push(`<h3 style="color:red;">${numero}</h3>`);
                 numero = numero * 3 + 1;
-                numeros.push(numero);
             }
         }
-        return numeros;
+            numeros.push(`<h3 style="color:red;">1</h3>`);
+        return numeros.join("");
     }
 }
 app.use(router).mount('#app')

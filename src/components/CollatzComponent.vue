@@ -2,11 +2,9 @@
   <div>
     <h1>Collatz</h1>
     <input type="number" v-model="numero">
-    <div v-if="numero > 0">
       <h3>Secuencia de Collatz:</h3>
-      <p> {{ $filters.collatz(numero) }}</p>
+      <div v-html="$filters.collatz(numero)"></div>
     </div>
-  </div>
 </template>
 
 <script>
